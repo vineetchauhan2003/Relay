@@ -10,6 +10,7 @@ import Catalog from '@/routes/Catalog'
 import Knowledge from '@/routes/Knowledge'
 import Article from '@/routes/Article'
 import RandomText from '@/routes/RandomText'
+import Data from '@/routes/Data'
 import NotFound from '@/routes/NotFound'
 
 // BrowserRouter (clean URLs, no #). The mount path is never hardcoded here — the engine
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/knowledge" element={<Knowledge />} />
           <Route path="/knowledge/:slug" element={<Article />} />
           <Route path="/random" element={<RandomText />} />
+          <Route path="/data" element={<Data />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
