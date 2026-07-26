@@ -11,8 +11,22 @@ const INTERNALS = {
   p: 'browser',
 } as const
 
-type WorkflowResponse = {
-  response?: { body?: { random_text?: string } }
+/**
+ * The execute-node call can nest the automation output at a few depths
+ * depending on the automation's response node. We defensively search the
+ * result for a `random_text` string wherever it lands.
+ */
+function extractRandomText(value: unknown): string | undefined {
+  if (value == null || typeof value !== 'object') return undefined
+
+  const record = value as Record<string, unknown>
+  if (typeof record.random_text === 'string') return record.random_text
+
+  for (const nested of Object.values(record)) {
+    const found = extractRandomText(nested)
+    if (found !== undefined) return found
+  }
+  return undefined
 }
 
 /**
@@ -42,7 +56,7 @@ export function useRandomText() {
         options: {},
       },
     })
-    return (result as WorkflowResponse | undefined)?.response?.body?.random_text
+    return extractRandomText(result)
   }
 
   return { run, isPending, error, reset }
