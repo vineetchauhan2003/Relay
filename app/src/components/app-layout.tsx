@@ -5,6 +5,7 @@ import {
   Ticket as TicketIcon,
   LayoutGrid,
   BookOpen,
+  Sparkles,
   Plus,
   Menu,
   Moon,
@@ -34,6 +35,7 @@ const NAV = [
   { to: '/tickets', label: 'Tickets', icon: TicketIcon, end: false },
   { to: '/catalog', label: 'Catalog', icon: LayoutGrid, end: false },
   { to: '/knowledge', label: 'Knowledge', icon: BookOpen, end: false },
+  { to: '/random', label: 'Random Text', icon: Sparkles, end: false },
 ] as const
 
 function NavItems({ onNavigate }: { onNavigate?: () => void }) {

@@ -657,6 +657,8 @@ interface CloneEntityRequest {
     projectId?: number;
     entityIdConversionMap?: CloneEntityRequestEntityIdConversionMap;
     entityPropertiesConversionMap?: CloneEntityRequestEntityPropertiesConversionMap;
+    version?: number;
+    deployed?: boolean;
 }
 
 /**

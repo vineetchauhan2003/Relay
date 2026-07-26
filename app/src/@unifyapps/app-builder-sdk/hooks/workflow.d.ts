@@ -131,16 +131,16 @@ type TriggerWorkflow200 = {
     [key: string]: unknown;
 };
 
-type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
+type SecondParameter$1<T extends (...args: never) => unknown> = Parameters<T>[1];
 /**
  * @summary Bulk Trigger Workflow
  */
-declare const bulkTriggerWorkflow: (executeWorkflowRequest: ExecuteWorkflowRequest[], options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<string[]>;
+declare const bulkTriggerWorkflow: (executeWorkflowRequest: ExecuteWorkflowRequest[], options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<string[]>;
 declare const getBulkTriggerWorkflowMutationOptions: <TError = ErrorType<unknown>, TContext = unknown>(options?: {
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof bulkTriggerWorkflow>>, TError, {
         data: ExecuteWorkflowRequest[];
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseMutationOptions<Awaited<ReturnType<typeof bulkTriggerWorkflow>>, TError, {
     data: ExecuteWorkflowRequest[];
 }, TContext>;
@@ -154,21 +154,21 @@ declare const useBulkTriggerWorkflow: <TError = ErrorType<unknown>, TContext = u
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof bulkTriggerWorkflow>>, TError, {
         data: ExecuteWorkflowRequest[];
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient) => UseMutationResult<Awaited<ReturnType<typeof bulkTriggerWorkflow>>, TError, {
     data: ExecuteWorkflowRequest[];
 }, TContext>;
 /**
  * @summary Cancel Execution
  */
-declare const cancelExecution: (executionId: string, cancelExecutionBody: CancelExecutionBody, params?: CancelExecutionParams, options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<void>;
+declare const cancelExecution: (executionId: string, cancelExecutionBody: CancelExecutionBody, params?: CancelExecutionParams, options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<void>;
 declare const getCancelExecutionMutationOptions: <TError = ErrorType<unknown>, TContext = unknown>(options?: {
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof cancelExecution>>, TError, {
         executionId: string;
         data: CancelExecutionBody;
         params?: CancelExecutionParams;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseMutationOptions<Awaited<ReturnType<typeof cancelExecution>>, TError, {
     executionId: string;
     data: CancelExecutionBody;
@@ -186,7 +186,7 @@ declare const useCancelExecution: <TError = ErrorType<unknown>, TContext = unkno
         data: CancelExecutionBody;
         params?: CancelExecutionParams;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient) => UseMutationResult<Awaited<ReturnType<typeof cancelExecution>>, TError, {
     executionId: string;
     data: CancelExecutionBody;
@@ -195,11 +195,11 @@ declare const useCancelExecution: <TError = ErrorType<unknown>, TContext = unkno
 /**
  * @summary Execute Workflow Node
  */
-declare const executeWorkflowNode: (executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<ExecuteWorkflowNodeResponse>;
+declare const executeWorkflowNode: (executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<ExecuteWorkflowNodeResponse>;
 declare const getExecuteWorkflowNodeQueryKey: (executeWorkflowNodeRequest?: ExecuteWorkflowNodeRequest) => readonly ["/api/workflow/execute/node", ExecuteWorkflowNodeRequest | undefined];
 declare const getExecuteWorkflowNodeQueryOptions: <TData = Awaited<ReturnType<typeof executeWorkflowNode>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNode>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNode>>, TError, TData> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
@@ -207,19 +207,19 @@ type ExecuteWorkflowNodeQueryResult = NonNullable<Awaited<ReturnType<typeof exec
 type ExecuteWorkflowNodeQueryError = ErrorType<unknown>;
 declare function useExecuteWorkflowNode<TData = Awaited<ReturnType<typeof executeWorkflowNode>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options: {
     query: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNode>>, TError, TData>> & Pick<DefinedInitialDataOptions<Awaited<ReturnType<typeof executeWorkflowNode>>, TError, Awaited<ReturnType<typeof executeWorkflowNode>>>, "initialData">;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): DefinedUseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
 declare function useExecuteWorkflowNode<TData = Awaited<ReturnType<typeof executeWorkflowNode>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNode>>, TError, TData>> & Pick<UndefinedInitialDataOptions<Awaited<ReturnType<typeof executeWorkflowNode>>, TError, Awaited<ReturnType<typeof executeWorkflowNode>>>, "initialData">;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): UseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
 declare function useExecuteWorkflowNode<TData = Awaited<ReturnType<typeof executeWorkflowNode>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNode>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): UseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
@@ -228,17 +228,17 @@ declare function useExecuteWorkflowNode<TData = Awaited<ReturnType<typeof execut
  */
 declare const prefetchExecuteWorkflowNode: <TData = Awaited<ReturnType<typeof executeWorkflowNode>>, TError = ErrorType<unknown>>(queryClient: QueryClient, executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNode>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => Promise<QueryClient>;
 /**
  * @summary Execute Workflow Node
  */
-declare const executeWorkflowNodeMultipartFormData: (executeWorkflowNodeMultipartFormDataBody: ExecuteWorkflowNodeMultipartFormDataBody, options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<ExecuteWorkflowNodeResponse>;
+declare const executeWorkflowNodeMultipartFormData: (executeWorkflowNodeMultipartFormDataBody: ExecuteWorkflowNodeMultipartFormDataBody, options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<ExecuteWorkflowNodeResponse>;
 declare const getExecuteWorkflowNodeMultipartFormDataMutationOptions: <TError = ErrorType<unknown>, TContext = unknown>(options?: {
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof executeWorkflowNodeMultipartFormData>>, TError, {
         data: ExecuteWorkflowNodeMultipartFormDataBody;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseMutationOptions<Awaited<ReturnType<typeof executeWorkflowNodeMultipartFormData>>, TError, {
     data: ExecuteWorkflowNodeMultipartFormDataBody;
 }, TContext>;
@@ -252,19 +252,19 @@ declare const useExecuteWorkflowNodeMultipartFormData: <TError = ErrorType<unkno
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof executeWorkflowNodeMultipartFormData>>, TError, {
         data: ExecuteWorkflowNodeMultipartFormDataBody;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient) => UseMutationResult<Awaited<ReturnType<typeof executeWorkflowNodeMultipartFormData>>, TError, {
     data: ExecuteWorkflowNodeMultipartFormDataBody;
 }, TContext>;
 /**
  * @summary Save And Run Node Schema
  */
-declare const runGetSchema: (executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<ExecuteWorkflowNodeResponse>;
+declare const runGetSchema: (executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<ExecuteWorkflowNodeResponse>;
 declare const getRunGetSchemaMutationOptions: <TError = ErrorType<unknown>, TContext = unknown>(options?: {
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof runGetSchema>>, TError, {
         data: ExecuteWorkflowNodeRequest;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseMutationOptions<Awaited<ReturnType<typeof runGetSchema>>, TError, {
     data: ExecuteWorkflowNodeRequest;
 }, TContext>;
@@ -278,18 +278,18 @@ declare const useRunGetSchema: <TError = ErrorType<unknown>, TContext = unknown>
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof runGetSchema>>, TError, {
         data: ExecuteWorkflowNodeRequest;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient) => UseMutationResult<Awaited<ReturnType<typeof runGetSchema>>, TError, {
     data: ExecuteWorkflowNodeRequest;
 }, TContext>;
 /**
  * @summary Execute Workflow Node Sse
  */
-declare const executeWorkflowNodeSse: (executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<void>;
+declare const executeWorkflowNodeSse: (executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<void>;
 declare const getExecuteWorkflowNodeSseQueryKey: (executeWorkflowNodeRequest?: ExecuteWorkflowNodeRequest) => readonly ["/api/workflow/execute/node/sse", ExecuteWorkflowNodeRequest | undefined];
 declare const getExecuteWorkflowNodeSseQueryOptions: <TData = Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError, TData> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
@@ -297,19 +297,19 @@ type ExecuteWorkflowNodeSseQueryResult = NonNullable<Awaited<ReturnType<typeof e
 type ExecuteWorkflowNodeSseQueryError = ErrorType<unknown>;
 declare function useExecuteWorkflowNodeSse<TData = Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options: {
     query: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError, TData>> & Pick<DefinedInitialDataOptions<Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError, Awaited<ReturnType<typeof executeWorkflowNodeSse>>>, "initialData">;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): DefinedUseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
 declare function useExecuteWorkflowNodeSse<TData = Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError, TData>> & Pick<UndefinedInitialDataOptions<Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError, Awaited<ReturnType<typeof executeWorkflowNodeSse>>>, "initialData">;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): UseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
 declare function useExecuteWorkflowNodeSse<TData = Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): UseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
@@ -318,16 +318,16 @@ declare function useExecuteWorkflowNodeSse<TData = Awaited<ReturnType<typeof exe
  */
 declare const prefetchExecuteWorkflowNodeSse: <TData = Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError = ErrorType<unknown>>(queryClient: QueryClient, executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodeSse>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => Promise<QueryClient>;
 /**
  * @summary Execute Workflow Nodes
  */
-declare const executeWorkflowNodes: (executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest[], options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<ExecuteNodesResponse>;
+declare const executeWorkflowNodes: (executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest[], options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<ExecuteNodesResponse>;
 declare const getExecuteWorkflowNodesQueryKey: (executeWorkflowNodeRequest?: ExecuteWorkflowNodeRequest[]) => readonly ["/api/workflow/execute/nodes", ExecuteWorkflowNodeRequest[] | undefined];
 declare const getExecuteWorkflowNodesQueryOptions: <TData = Awaited<ReturnType<typeof executeWorkflowNodes>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest[], options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodes>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodes>>, TError, TData> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
@@ -335,19 +335,19 @@ type ExecuteWorkflowNodesQueryResult = NonNullable<Awaited<ReturnType<typeof exe
 type ExecuteWorkflowNodesQueryError = ErrorType<unknown>;
 declare function useExecuteWorkflowNodes<TData = Awaited<ReturnType<typeof executeWorkflowNodes>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest[], options: {
     query: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodes>>, TError, TData>> & Pick<DefinedInitialDataOptions<Awaited<ReturnType<typeof executeWorkflowNodes>>, TError, Awaited<ReturnType<typeof executeWorkflowNodes>>>, "initialData">;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): DefinedUseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
 declare function useExecuteWorkflowNodes<TData = Awaited<ReturnType<typeof executeWorkflowNodes>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest[], options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodes>>, TError, TData>> & Pick<UndefinedInitialDataOptions<Awaited<ReturnType<typeof executeWorkflowNodes>>, TError, Awaited<ReturnType<typeof executeWorkflowNodes>>>, "initialData">;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): UseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
 declare function useExecuteWorkflowNodes<TData = Awaited<ReturnType<typeof executeWorkflowNodes>>, TError = ErrorType<unknown>>(executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest[], options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodes>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient): UseQueryResult<TData, TError> & {
     queryKey: DataTag<QueryKey, TData, TError>;
 };
@@ -356,17 +356,17 @@ declare function useExecuteWorkflowNodes<TData = Awaited<ReturnType<typeof execu
  */
 declare const prefetchExecuteWorkflowNodes: <TData = Awaited<ReturnType<typeof executeWorkflowNodes>>, TError = ErrorType<unknown>>(queryClient: QueryClient, executeWorkflowNodeRequest: ExecuteWorkflowNodeRequest[], options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof executeWorkflowNodes>>, TError, TData>>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => Promise<QueryClient>;
 /**
  * @summary Re Trigger Execution
  */
-declare const reTriggerExecution: (repeatExecutionRequest: RepeatExecutionRequest, options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<ReTriggerExecution200>;
+declare const reTriggerExecution: (repeatExecutionRequest: RepeatExecutionRequest, options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<ReTriggerExecution200>;
 declare const getReTriggerExecutionMutationOptions: <TError = ErrorType<unknown>, TContext = unknown>(options?: {
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof reTriggerExecution>>, TError, {
         data: RepeatExecutionRequest;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseMutationOptions<Awaited<ReturnType<typeof reTriggerExecution>>, TError, {
     data: RepeatExecutionRequest;
 }, TContext>;
@@ -380,7 +380,7 @@ declare const useReTriggerExecution: <TError = ErrorType<unknown>, TContext = un
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof reTriggerExecution>>, TError, {
         data: RepeatExecutionRequest;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient) => UseMutationResult<Awaited<ReturnType<typeof reTriggerExecution>>, TError, {
     data: RepeatExecutionRequest;
 }, TContext>;
@@ -388,12 +388,12 @@ declare const useReTriggerExecution: <TError = ErrorType<unknown>, TContext = un
  * @deprecated
  * @summary Trigger Workflow
  */
-declare const triggerWorkflow: (executeWorkflowRequest: ExecuteWorkflowRequest, options?: SecondParameter<typeof executeFetch>, signal?: AbortSignal) => Promise<TriggerWorkflow200>;
+declare const triggerWorkflow: (executeWorkflowRequest: ExecuteWorkflowRequest, options?: SecondParameter$1<typeof executeFetch>, signal?: AbortSignal) => Promise<TriggerWorkflow200>;
 declare const getTriggerWorkflowMutationOptions: <TError = ErrorType<unknown>, TContext = unknown>(options?: {
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof triggerWorkflow>>, TError, {
         data: ExecuteWorkflowRequest;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }) => UseMutationOptions<Awaited<ReturnType<typeof triggerWorkflow>>, TError, {
     data: ExecuteWorkflowRequest;
 }, TContext>;
@@ -408,10 +408,32 @@ declare const useTriggerWorkflow: <TError = ErrorType<unknown>, TContext = unkno
     mutation?: UseMutationOptions<Awaited<ReturnType<typeof triggerWorkflow>>, TError, {
         data: ExecuteWorkflowRequest;
     }, TContext>;
-    request?: SecondParameter<typeof executeFetch>;
+    request?: SecondParameter$1<typeof executeFetch>;
 }, queryClient?: QueryClient) => UseMutationResult<Awaited<ReturnType<typeof triggerWorkflow>>, TError, {
     data: ExecuteWorkflowRequest;
 }, TContext>;
 
-export { bulkTriggerWorkflow, cancelExecution, executeWorkflowNode, executeWorkflowNodeMultipartFormData, executeWorkflowNodeSse, executeWorkflowNodes, getBulkTriggerWorkflowMutationOptions, getCancelExecutionMutationOptions, getExecuteWorkflowNodeMultipartFormDataMutationOptions, getExecuteWorkflowNodeQueryKey, getExecuteWorkflowNodeQueryOptions, getExecuteWorkflowNodeSseQueryKey, getExecuteWorkflowNodeSseQueryOptions, getExecuteWorkflowNodesQueryKey, getExecuteWorkflowNodesQueryOptions, getReTriggerExecutionMutationOptions, getRunGetSchemaMutationOptions, getTriggerWorkflowMutationOptions, prefetchExecuteWorkflowNode, prefetchExecuteWorkflowNodeSse, prefetchExecuteWorkflowNodes, reTriggerExecution, runGetSchema, triggerWorkflow, useBulkTriggerWorkflow, useCancelExecution, useExecuteWorkflowNode, useExecuteWorkflowNodeMultipartFormData, useExecuteWorkflowNodeSse, useExecuteWorkflowNodes, useReTriggerExecution, useRunGetSchema, useTriggerWorkflow };
-export type { BulkTriggerWorkflowMutationBody, BulkTriggerWorkflowMutationError, BulkTriggerWorkflowMutationResult, CancelExecutionMutationBody, CancelExecutionMutationError, CancelExecutionMutationResult, ExecuteWorkflowNodeMultipartFormDataMutationBody, ExecuteWorkflowNodeMultipartFormDataMutationError, ExecuteWorkflowNodeMultipartFormDataMutationResult, ExecuteWorkflowNodeQueryError, ExecuteWorkflowNodeQueryResult, ExecuteWorkflowNodeSseQueryError, ExecuteWorkflowNodeSseQueryResult, ExecuteWorkflowNodesQueryError, ExecuteWorkflowNodesQueryResult, ReTriggerExecutionMutationBody, ReTriggerExecutionMutationError, ReTriggerExecutionMutationResult, RunGetSchemaMutationBody, RunGetSchemaMutationError, RunGetSchemaMutationResult, TriggerWorkflowMutationBody, TriggerWorkflowMutationError, TriggerWorkflowMutationResult };
+type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
+type ExecuteWorkflowNodeData = Awaited<ReturnType<typeof executeWorkflowNode>>;
+type ExecuteWorkflowNodeVariables = {
+    data: ExecuteWorkflowNodeRequest;
+};
+type ExecuteWorkflowNodeMutationResult = NonNullable<ExecuteWorkflowNodeData>;
+type ExecuteWorkflowNodeMutationBody = ExecuteWorkflowNodeRequest;
+type ExecuteWorkflowNodeMutationError = ErrorType<unknown>;
+interface ExecuteWorkflowNodeMutationArgs<TError, TContext> {
+    mutation?: UseMutationOptions<ExecuteWorkflowNodeData, TError, ExecuteWorkflowNodeVariables, TContext>;
+    request?: SecondParameter<typeof executeFetch>;
+}
+declare const getExecuteWorkflowNodeMutationOptions: <TError = ErrorType<unknown>, TContext = unknown>(options?: ExecuteWorkflowNodeMutationArgs<TError, TContext>) => UseMutationOptions<ExecuteWorkflowNodeData, TError, ExecuteWorkflowNodeVariables, TContext>;
+/**
+ * Execute a workflow node (run an automation) as a mutation.
+ *
+ * @example
+ * const { mutateAsync, data, isPending, error } = useExecuteWorkflowNodeMutation();
+ * await mutateAsync({ data: request });
+ */
+declare const useExecuteWorkflowNodeMutation: <TError = ErrorType<unknown>, TContext = unknown>(options?: ExecuteWorkflowNodeMutationArgs<TError, TContext>) => UseMutationResult<ExecuteWorkflowNodeData, TError, ExecuteWorkflowNodeVariables, TContext>;
+
+export { bulkTriggerWorkflow, cancelExecution, executeWorkflowNode, executeWorkflowNodeMultipartFormData, executeWorkflowNodeSse, executeWorkflowNodes, getBulkTriggerWorkflowMutationOptions, getCancelExecutionMutationOptions, getExecuteWorkflowNodeMultipartFormDataMutationOptions, getExecuteWorkflowNodeMutationOptions, getExecuteWorkflowNodeQueryKey, getExecuteWorkflowNodeQueryOptions, getExecuteWorkflowNodeSseQueryKey, getExecuteWorkflowNodeSseQueryOptions, getExecuteWorkflowNodesQueryKey, getExecuteWorkflowNodesQueryOptions, getReTriggerExecutionMutationOptions, getRunGetSchemaMutationOptions, getTriggerWorkflowMutationOptions, prefetchExecuteWorkflowNode, prefetchExecuteWorkflowNodeSse, prefetchExecuteWorkflowNodes, reTriggerExecution, runGetSchema, triggerWorkflow, useBulkTriggerWorkflow, useCancelExecution, useExecuteWorkflowNode, useExecuteWorkflowNodeMultipartFormData, useExecuteWorkflowNodeMutation, useExecuteWorkflowNodeSse, useExecuteWorkflowNodes, useReTriggerExecution, useRunGetSchema, useTriggerWorkflow };
+export type { BulkTriggerWorkflowMutationBody, BulkTriggerWorkflowMutationError, BulkTriggerWorkflowMutationResult, CancelExecutionMutationBody, CancelExecutionMutationError, CancelExecutionMutationResult, ExecuteWorkflowNodeMultipartFormDataMutationBody, ExecuteWorkflowNodeMultipartFormDataMutationError, ExecuteWorkflowNodeMultipartFormDataMutationResult, ExecuteWorkflowNodeMutationArgs, ExecuteWorkflowNodeMutationBody, ExecuteWorkflowNodeMutationError, ExecuteWorkflowNodeMutationResult, ExecuteWorkflowNodeQueryError, ExecuteWorkflowNodeQueryResult, ExecuteWorkflowNodeSseQueryError, ExecuteWorkflowNodeSseQueryResult, ExecuteWorkflowNodesQueryError, ExecuteWorkflowNodesQueryResult, ReTriggerExecutionMutationBody, ReTriggerExecutionMutationError, ReTriggerExecutionMutationResult, RunGetSchemaMutationBody, RunGetSchemaMutationError, RunGetSchemaMutationResult, TriggerWorkflowMutationBody, TriggerWorkflowMutationError, TriggerWorkflowMutationResult };

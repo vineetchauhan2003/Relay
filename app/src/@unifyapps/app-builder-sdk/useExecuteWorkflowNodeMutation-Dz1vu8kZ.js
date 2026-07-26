@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { e as executeFetch } from "./fetch-DfbrtxWN.js";
 const bulkTriggerWorkflow = (executeWorkflowRequest, options, signal) => {
   return executeFetch(
@@ -305,14 +305,39 @@ const useTriggerWorkflow = (options, queryClient) => {
   const mutationOptions = getTriggerWorkflowMutationOptions(options);
   return useMutation(mutationOptions, queryClient);
 };
+const useGetMutationMeta = () => {
+  const queryClient = useQueryClient();
+  const meta = queryClient.getDefaultOptions().mutations?.meta;
+  return meta;
+};
+const getExecuteWorkflowNodeMutationOptions = (options) => {
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+  const mutationFn = ({
+    data
+  }) => executeWorkflowNode(data, requestOptions);
+  return { mutationFn, ...mutationOptions };
+};
+const useExecuteWorkflowNodeMutation = (options) => {
+  const meta = useGetMutationMeta();
+  const optionsWithMeta = {
+    ...options,
+    request: {
+      ...options?.request,
+      meta: { ...meta, ...options?.request?.meta }
+    }
+  };
+  return useMutation(getExecuteWorkflowNodeMutationOptions(optionsWithMeta));
+};
 export {
-  useExecuteWorkflowNode as A,
-  useExecuteWorkflowNodeMultipartFormData as B,
-  useExecuteWorkflowNodeSse as C,
-  useExecuteWorkflowNodes as D,
-  useReTriggerExecution as E,
-  useRunGetSchema as F,
-  useTriggerWorkflow as G,
+  useCancelExecution as A,
+  useExecuteWorkflowNode as B,
+  useExecuteWorkflowNodeMultipartFormData as C,
+  useExecuteWorkflowNodeMutation as D,
+  useExecuteWorkflowNodeSse as E,
+  useExecuteWorkflowNodes as F,
+  useReTriggerExecution as G,
+  useRunGetSchema as H,
+  useTriggerWorkflow as I,
   executeWorkflowNodeMultipartFormData as a,
   bulkTriggerWorkflow as b,
   cancelExecution as c,
@@ -322,21 +347,21 @@ export {
   getBulkTriggerWorkflowMutationOptions as g,
   getCancelExecutionMutationOptions as h,
   getExecuteWorkflowNodeMultipartFormDataMutationOptions as i,
-  getExecuteWorkflowNodeQueryKey as j,
-  getExecuteWorkflowNodeQueryOptions as k,
-  getExecuteWorkflowNodeSseQueryKey as l,
-  getExecuteWorkflowNodeSseQueryOptions as m,
-  getExecuteWorkflowNodesQueryKey as n,
-  getExecuteWorkflowNodesQueryOptions as o,
-  getReTriggerExecutionMutationOptions as p,
-  getRunGetSchemaMutationOptions as q,
-  getTriggerWorkflowMutationOptions as r,
-  prefetchExecuteWorkflowNode as s,
-  prefetchExecuteWorkflowNodeSse as t,
-  prefetchExecuteWorkflowNodes as u,
-  reTriggerExecution as v,
-  runGetSchema as w,
-  triggerWorkflow as x,
-  useBulkTriggerWorkflow as y,
-  useCancelExecution as z
+  getExecuteWorkflowNodeMutationOptions as j,
+  getExecuteWorkflowNodeQueryKey as k,
+  getExecuteWorkflowNodeQueryOptions as l,
+  getExecuteWorkflowNodeSseQueryKey as m,
+  getExecuteWorkflowNodeSseQueryOptions as n,
+  getExecuteWorkflowNodesQueryKey as o,
+  getExecuteWorkflowNodesQueryOptions as p,
+  getReTriggerExecutionMutationOptions as q,
+  getRunGetSchemaMutationOptions as r,
+  getTriggerWorkflowMutationOptions as s,
+  prefetchExecuteWorkflowNode as t,
+  prefetchExecuteWorkflowNodeSse as u,
+  prefetchExecuteWorkflowNodes as v,
+  reTriggerExecution as w,
+  runGetSchema as x,
+  triggerWorkflow as y,
+  useBulkTriggerWorkflow as z
 };
