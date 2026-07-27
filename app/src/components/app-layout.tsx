@@ -12,6 +12,7 @@ import {
   Sun,
   LifeBuoy,
   Database,
+  ArrowLeftRight,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -37,6 +38,7 @@ const NAV = [
   { to: '/catalog', label: 'Catalog', icon: LayoutGrid, end: false },
   { to: '/knowledge', label: 'Knowledge', icon: BookOpen, end: false },
   { to: '/random', label: 'Random Text', icon: Sparkles, end: false },
+  { to: '/input-output', label: 'Input Output', icon: ArrowLeftRight, end: false },
   { to: '/data', label: 'Data', icon: Database, end: false },
 ] as const
 

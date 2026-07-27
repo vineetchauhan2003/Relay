@@ -10,6 +10,7 @@ import Catalog from '@/routes/Catalog'
 import Knowledge from '@/routes/Knowledge'
 import Article from '@/routes/Article'
 import RandomText from '@/routes/RandomText'
+import InputOutput from '@/routes/InputOutput'
 import Data from '@/routes/Data'
 import NotFound from '@/routes/NotFound'
 
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/knowledge" element={<Knowledge />} />
           <Route path="/knowledge/:slug" element={<Article />} />
           <Route path="/random" element={<RandomText />} />
+          <Route path="/input-output" element={<InputOutput />} />
           <Route path="/data" element={<Data />} />
           <Route path="*" element={<NotFound />} />
         </Route>
