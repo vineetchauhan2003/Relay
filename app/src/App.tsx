@@ -23,6 +23,9 @@ import NotFound from '@/routes/NotFound'
 const APP_BASE = import.meta.env.BASE_URL
 const basename = (APP_BASE.startsWith('/') ? APP_BASE.replace(/\/+$/, '') : '') || undefined
 
+// This app is dark-mode only — enforce it across every route (including auth pages).
+document.documentElement.classList.add('dark')
+
 export default function App() {
   return (
     <BrowserRouter basename={basename}>

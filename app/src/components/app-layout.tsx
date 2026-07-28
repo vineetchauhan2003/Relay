@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import {
   LayoutDashboard,
@@ -8,8 +8,6 @@ import {
   Sparkles,
   Plus,
   Menu,
-  Moon,
-  Sun,
   LifeBuoy,
   Database,
   ArrowLeftRight,
@@ -105,16 +103,9 @@ function SidebarInner({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 export function AppLayout() {
-  const theme = useUIStore((s) => s.theme)
-  const toggleTheme = useUIStore((s) => s.toggleTheme)
   const agentMap = useAgentMap()
   const me = agentMap[CURRENT_AGENT_ID]
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  // Sync the document theme class with the store (dark by default).
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-  }, [theme])
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-background">
@@ -139,15 +130,6 @@ export function AppLayout() {
           <div className="flex-1">
             <GlobalSearch />
           </div>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? <Sun className="size-4.5" /> : <Moon className="size-4.5" />}
-          </Button>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

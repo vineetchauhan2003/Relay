@@ -14,9 +14,6 @@ export type CreatePrefill = {
 } | null
 
 type UIState = {
-  theme: 'dark' | 'light'
-  toggleTheme: () => void
-
   // ticket queue filters
   search: string
   statusFilter: Status | 'all'
@@ -40,14 +37,6 @@ type UIState = {
 }
 
 export const useUIStore = create<UIState>((set) => ({
-  theme: 'dark',
-  toggleTheme: () =>
-    set((s) => {
-      const next = s.theme === 'dark' ? 'light' : 'dark'
-      document.documentElement.classList.toggle('dark', next === 'dark')
-      return { theme: next }
-    }),
-
   search: '',
   statusFilter: 'all',
   priorityFilter: 'all',
